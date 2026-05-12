@@ -1,0 +1,165 @@
+@use "../abstract/variables" as *;
+
+.contact-page {
+  padding: 5rem 4rem 6rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba($color-lightest, 0.84)),
+    url("/src/assets/img/gemma_3.jpg") center / cover fixed;
+}
+
+.contact-info-card__label {
+  display: inline-block;
+  color: $color-accent-dark;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.88fr) minmax(320px, 1.12fr);
+  gap: 2rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.contact-info-card,
+.contact-form-card {
+  border-radius: 8px;
+  box-shadow: $shadow-soft;
+}
+
+.contact-info-card {
+  padding: 2.3rem;
+  color: #ffffff;
+  background:
+    linear-gradient(145deg, rgba($color-very-dark, 0.98), rgba($color-dark, 0.92)),
+    $color-very-dark;
+}
+
+.contact-info-card h2,
+.contact-form-card h2 {
+  margin: 0.8rem 0 0.85rem;
+  font-family: $font-header;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.contact-info-card h2 {
+  color: #ffffff;
+}
+
+.contact-info-card > p {
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.75;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list a {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 0.85rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.055);
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-list a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.095);
+  transform: translateX(4px);
+}
+
+.contact-list svg {
+  width: 18px;
+  height: 18px;
+  padding: 12px;
+  color: $color-accent;
+  background: rgba($color-accent, 0.12);
+  border-radius: 8px;
+}
+
+.contact-list span {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.contact-list strong {
+  color: #ffffff;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.contact-form-card {
+  padding: 2.3rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba($color-medium, 0.16);
+}
+
+.contact-form-card h2 {
+  color: $color-very-dark;
+}
+
+.contact-form-card > p {
+  margin: 0 0 1.5rem;
+  color: $color-medium;
+  line-height: 1.7;
+}
+
+.contact-form .ant-input,
+.contact-form .ant-input-affix-wrapper {
+  border-radius: 8px;
+}
+
+.contact-form textarea.ant-input {
+  resize: vertical;
+}
+
+.contact-form__submit.ant-btn {
+  min-height: 46px;
+  font-weight: 800;
+  background: $color-dark;
+  border-color: $color-dark;
+  border-radius: 8px;
+}
+
+.contact-form__submit.ant-btn:hover {
+  background: $color-very-dark;
+  border-color: $color-very-dark;
+}
+
+@media (max-width: 900px) {
+  .contact-page {
+    padding: 4rem 1.5rem 5rem;
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page {
+    padding: 3rem 1rem 4rem;
+    background-attachment: scroll;
+  }
+
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.5rem;
+  }
+}

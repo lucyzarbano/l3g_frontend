@@ -1,0 +1,588 @@
+// ----------------------
+// 🏨 ROOM PAGE STYLING
+// ----------------------
+
+@use "sass:color";
+@use "../abstract/variables" as *;
+
+.room-page {
+  background: transparent;
+  padding: 6rem 4rem;
+  font-family: $font-body;
+  color: $color-very-dark;
+
+  .room-page_content{
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+
+  .room-page_col1{
+    flex: 1 1 70%;
+    min-width: 0;
+  }
+
+  .room-page_col2{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    flex: 0 0 330px;
+    min-width: 300px;
+  }
+
+  .room-header {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h1 {
+      font-family: $font-header;
+      font-size: 3rem;
+      font-weight: 700;
+      color: $color-dark;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: $color-medium;
+      margin: auto;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+  }
+}
+
+// ----------------------
+// 🖼 GALLERY
+// ----------------------
+// ----------------------
+// 🖼 GALLERY (ZANTE STYLE)
+// ----------------------
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.room-gallery {
+  margin-bottom: 70px;
+
+  // ----------------------
+  // MAIN SLIDER
+  // ----------------------
+  .room-main-slider {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+
+    .swiper-slide {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.25),
+          rgba(0, 0, 0, 0.05) 40%,
+          rgba(0, 0, 0, 0.35)
+        );
+        z-index: 2;
+        pointer-events: none;
+      }
+    }
+
+    .swiper-slide-active img {
+      animation: slowZoom 10s ease-in-out infinite alternate;
+    }
+
+    img {
+      width: 100%;
+      height: 75vh;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      position: relative;
+      z-index: 1;
+      padding: 5px;
+    }
+
+    // Navigation arrows
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: $color-white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      .swiper-button-next,
+      .swiper-button-prev {
+        opacity: 1;
+      }
+    }
+  }
+
+  // ----------------------
+  // THUMBNAILS
+  // ----------------------
+  .room-thumb-slider {
+    margin-top: 22px;
+    padding: 0.45rem 0.25rem 0.85rem;
+
+    .swiper-slide {
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      opacity: 0.62;
+      overflow: visible;
+      position: relative;
+      padding: 0;
+      border: 1px solid rgba($color-medium, 0.18);
+      border-radius: 8px;
+      background: $color-white;
+      box-shadow: 0 8px 18px rgba($color-very-dark, 0.12);
+      transition: opacity 0.28s ease, transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        background: linear-gradient(
+          to bottom,
+          rgba($color-very-dark, 0),
+          rgba($color-very-dark, 0.24)
+        );
+        pointer-events: none;
+        transition: opacity 0.28s ease;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        pointer-events: none;
+        transition: border-color 0.28s ease, opacity 0.28s ease;
+        opacity: 0;
+      }
+
+      &:hover {
+        opacity: 0.92;
+        transform: translateY(-3px);
+        border-color: rgba($color-accent-dark, 0.42);
+        box-shadow: 0 14px 26px rgba($color-very-dark, 0.18);
+
+        &::after {
+          opacity: 0.45;
+        }
+      }
+    }
+
+    .swiper-slide-thumb-active {
+      opacity: 1;
+      transform: translateY(-4px);
+      border-color: rgba($color-accent-dark, 0.65);
+      box-shadow: 0 16px 30px rgba($color-very-dark, 0.2);
+
+      &::before {
+        border-color: $color-accent-dark;
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 0.12;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px;
+    }
+  }
+}
+
+// ----------------------
+// 📱 RESPONSIVE
+// ----------------------
+@media (max-width: 768px) {
+  .room-gallery {
+    .room-main-slider img {
+      height: 55vh;
+    }
+
+    .room-thumb-slider img {
+      height: 100%;
+    }
+  }
+}
+
+// ----------------------
+// 📄 CONTENT LAYOUT
+// ----------------------
+.room-content {
+  margin-top: 30px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.room-description {
+  background: rgba(255, 255, 255, 0.94);
+  padding: 35px;
+  border: 1px solid rgba($color-medium, 0.16);
+  border-radius: 8px;
+  box-shadow: $shadow-soft;
+
+
+  .room_services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+}
+
+// ----------------------
+// 📆 AVAILABILITY WIDGET
+// ----------------------
+.availability-box {
+  background: $color-lighter_2;
+  padding: 30px;
+  border-radius: $radius-soft;
+  box-shadow: $shadow-soft;
+  color: $color-very-dark;
+  position: sticky;
+  top: 20px;
+
+  h3 {
+    margin-bottom: 22px;
+    font-size: 1.4rem;
+    color: $color-dark;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: $color-dark;
+    }
+
+    input {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid color.adjust($color-lighter_2, $lightness: 10%);
+      background: $color-white;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba($color-accent, 0.25);
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    background: $color-accent;
+    color: $color-white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: color.adjust($color-accent, $lightness: -8%);
+      transform: translateY(-3px);
+    }
+  }
+
+  .result-msg {
+    margin-top: 18px;
+    background: $color-white;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: $color-medium;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: $shadow-lighter;
+  }
+}
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+
+// ----------------------
+// RESPONSIVE IMPROVEMENTS
+// ----------------------
+@media (max-width: 600px) {
+  .room-gallery .room-main-slider img {
+    height: 50vh;
+  }
+
+  .room-gallery .room-thumb-slider img {
+    height: 60px;
+  }
+
+  .room-description {
+    padding: 25px;
+  }
+
+  .availability-box {
+    padding: 25px;
+  }
+}
+
+/*SIDEBAR*/
+
+// Sidebar.scss
+.room-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $sidebar-gap;
+  width: 100%;
+  position: sticky;
+  top: 2rem;
+
+  .box {
+    background:
+      linear-gradient(180deg, rgba($color-lightest, 0.72), rgba($color-white, 0.98));
+    border: 1px solid rgba($color-medium, 0.16);
+    border-radius: 8px;
+    padding: 1.4rem;
+    box-shadow: 0 18px 44px rgba($color-very-dark, 0.12);
+
+    p{
+      line-height: 1.6rem;
+    }
+    
+
+    // Titolo del box
+    &__title {
+      color: $color-dark;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        padding: 0.65rem;
+        color: $color-white;
+        background: linear-gradient(135deg, $color-medium, $color-dark);
+        border-radius: 8px;
+      }
+    }
+
+
+    // Contenuto del box
+    &__content {
+      color: $color-medium;
+      font-size: 0.95rem;
+
+      p {
+        margin: 0.4rem 0;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 1.2rem;
+
+        li {
+          margin-bottom: 0.3rem;
+        }
+      }
+
+      &__section{
+        padding: 0.5rem;
+
+        h3{
+          margin-bottom: 25px;
+        }
+      }
+
+      /*&__separator{
+        width: 100%;
+        height: 2px;
+        margin: 1rem 0;
+        background: repeating-linear-gradient(
+          to right,
+          $color-dark 0,
+          $color-dark 5px,
+          $color-lighter 5px,
+          $color-lighter 10px
+        );
+        border-radius: 2px;
+      }*/
+      &__separator {
+      width: 100%;
+      height: 2px;
+      margin: 1rem 0;
+      border-radius: 2px;
+
+      background: linear-gradient(
+        to right,
+        rgba($color-dark, 0),       // inizio trasparente
+        rgba($color-dark, 0.6) 40%, // verso il centro colore pieno
+        rgba($color-dark, 0.8) 50%, // centro massimo
+        rgba($color-dark, 0.6) 60%, // verso la fine colore pieno
+        rgba($color-dark, 0) 100%   // fine trasparente
+      );
+    }
+      
+    }
+  }
+}
+
+.room-info-panel {
+  display: grid;
+  gap: 1rem;
+
+  &__section {
+    padding-top: 1rem;
+    border-top: 1px solid rgba($color-medium, 0.14);
+
+    &:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 0.65rem;
+      color: $color-very-dark;
+      font-size: 1rem;
+
+      svg {
+        color: $color-accent-dark;
+      }
+    }
+
+    p {
+      margin: 0;
+      color: $color-medium;
+    }
+  }
+
+  &__section--highlight {
+    padding: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba($color-lightest, 0.42),
+      rgba($color-inverse_2, 0.14)
+    );
+    border: 1px solid rgba($color-accent-dark, 0.16);
+    border-radius: 8px;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: $color-accent-dark;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  &__chips,
+  &__services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    li {
+      padding: 0.42rem 0.65rem;
+      color: $color-dark;
+      background: rgba($color-lightest, 0.38);
+      border: 1px solid rgba($color-accent-dark, 0.16);
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+  }
+
+  &__services {
+    display: grid;
+    gap: 0.75rem;
+
+    li {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: center;
+      gap: 0.75rem;
+      color: $color-dark;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      padding: 0.5rem;
+      color: $color-white;
+      background: rgba($color-dark, 0.88);
+      border-radius: 8px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .room-page {
+    padding: 4rem 2rem;
+
+    .room-page_content {
+      flex-direction: column;
+    }
+
+    .room-page_col1,
+    .room-page_col2 {
+      width: 100%;
+      flex-basis: auto;
+      min-width: 0;
+    }
+  }
+
+  .room-sidebar {
+    position: static;
+  }
+}

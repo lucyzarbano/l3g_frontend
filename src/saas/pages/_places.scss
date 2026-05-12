@@ -1,0 +1,31 @@
+@use "../abstract/variables" as *;
+
+
+.places-list__page {
+    background: #fff;
+    padding: 6rem 4rem;
+    font-family: $font-body;
+    color: $color-very-dark;
+
+}
+
+.places-list__header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.places-list__intro {
+    max-width: 1000px;
+    margin: 1rem auto 0;
+    font-size: 1.2rem;
+    color: $color-dark;
+    line-height: 1.8rem;
+  }
+
+.places-list__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+}

@@ -1,0 +1,136 @@
+@use "../abstract/variables" as *;
+
+.about-section {
+  padding: 5rem 4rem;
+  background: linear-gradient(180deg, rgba($color-lightest, 0.42), rgba(255, 255, 255, 0.95));
+}
+
+.about-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba($color-medium, 0.16);
+  border-radius: 8px;
+  box-shadow: $shadow-soft;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-header {
+  line-height: 1.8;
+
+  h2 {
+    margin-bottom: 1.4rem;
+    color: $color-very-dark;
+  }
+}
+
+.about-eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+  color: $color-accent-dark;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.about-copy {
+  display: grid;
+  gap: 1rem;
+  max-width: 620px;
+
+  p {
+    margin: 0;
+    color: $color-dark;
+    font-size: 1.04rem;
+    line-height: 1.85;
+  }
+}
+
+.about-images {
+  position: relative;
+  min-height: 440px;
+
+  img {
+    width: min(78%, 420px);
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 18px 42px rgba($color-very-dark, 0.2);
+    transition: transform 0.4s ease;
+    cursor: pointer;
+    object-fit: cover;
+
+    &:hover {
+      transform: scale(1.035) translate(0, 0);
+      z-index: 4;
+    }
+  }
+
+  .img_1 {
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .img_2 {
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-container {
+    padding: 2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-copy {
+    max-width: none;
+  }
+
+  .about-images {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section {
+    padding: 3rem 1rem;
+  }
+
+  .about-container {
+    padding: 1.25rem;
+  }
+
+  .about-images {
+    display: grid;
+    gap: 1rem;
+    min-height: auto;
+
+    img {
+      position: static;
+      width: 100%;
+      max-height: 280px;
+
+      &:hover {
+        transform: scale(1.015);
+      }
+    }
+  }
+}

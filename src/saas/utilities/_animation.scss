@@ -1,0 +1,41 @@
+// effetti generici
+.fade, .slide-up, .slide-left, .zoom, .rotate {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.fade.active {
+  opacity: 1;
+}
+
+.slide-up {
+  transform: translateY(20px);
+}
+.slide-up.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-left {
+  transform: translateX(-30px);
+}
+.slide-left.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.zoom {
+  transform: scale(0.9);
+}
+.zoom.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.rotate {
+  transform: rotate(-5deg) translateY(20px);
+}
+.rotate.active {
+  transform: rotate(0deg) translateY(0);
+  opacity: 1;
+}

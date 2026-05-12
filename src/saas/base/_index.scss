@@ -1,0 +1,94 @@
+/* palette neutra grigia */
+@use "../abstract/variables" as *;
+// Font
+
+
+// Spacing
+$padding-main: 2rem;
+$border-radius: 10px;
+
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: $font-body;
+  background-color: $color-background;
+  color: $color-text;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+/* App Container Principale */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-background;
+}
+
+/* Main */
+.main {
+  /*flex: 1;
+  padding: $padding-main;*/
+  background-color: $color-background;
+}
+
+
+
+/* Sezione camere */
+
+
+
+/* Sezione Recensioni */
+.recensioni {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: white;
+
+  h2 {
+    font-size: 2.3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .recensioni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .recensione-card {
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-style: italic;
+
+    .author {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #444;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .recensioni {
+    padding: 3rem 1rem;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .recensione-card {
+      padding: 1.4rem;
+    }
+  }
+}

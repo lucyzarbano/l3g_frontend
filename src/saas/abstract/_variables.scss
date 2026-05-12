@@ -1,0 +1,78 @@
+// Variabili colori
+// Alternative complete in frontend/docs/palette-colori.md
+/*$color-lightest: #EFE9F5;     // grigio molto chiaro
+$color-lighter: #D1C1E0;      // neutro chiaro
+$color-medium: #AC92C4;       // grigio medio tenue
+$color-dark: #633E87;         // grigio scuro
+$color-very-dark: #8565A4;*/
+
+
+/*$color-lightest: #FCFAF5;    // Crema molto chiaro (sfondi principali)
+$color-lighter: #F3ECDF;     // Crema chiaro tipo "panna" (box, card)
+$color-medium:  #E4D5BB;     // Beige morbido (sfondi secondari)
+$color-dark:    #C7B08F;     // Beige scuro caldo (bottoni, footer chiaro)
+$color-very-dark: #8C7050;   // Marrone caldo naturale (accenti, titoli)
+$color-text:   $color-very-dark;  // Marrone scuro per il testo leggibile*/
+
+$color-lightest: #E6EDF2;   // Azzurro molto chiaro, quasi sfondo bianco
+$color-lighter:  #b0cadc;
+$color-lighter_2:  #A8C1D3;   // Blu chiaro morbido, card o box
+$color-medium:   #628299;   // Colore principale del brand
+$color-dark:     #3F5C6E;   // Blu/grigio scuro, per titoli o bottoni
+$color-very-dark:#2A3B46;   // Blu molto scuro, per testo principale
+$color-text:   $color-dark; 
+
+
+//sostituire
+$color-accent:   #febf04;   // Accent caldo/arancione per contrasti e bottoni
+$color-accent-dark:   #f99703;   // Accent caldo/arancione per contrasti e bottoni
+$color-accent-light:   #e1ad11;   // Accent caldo/arancione per contrasti e bottoni
+
+
+
+$color-background: $color-lightest;
+
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-gray-dark-4: #858a99;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-background-gray-1: #F5F5F5;
+$color-background-gray-2: #EEEEEE;
+
+$color-inverse_1: #ffb347;
+$color-inverse_2: #ffcc33;
+
+
+
+// FONT
+$default-font-size: 1.6rem;
+
+$font-header: 'Playfair Display', serif;
+$font-body: 'Montserrat', sans-serif;
+
+//CARD
+$card-gap: 25px;
+$card-border-radius: 12px;
+$card-img-height: 270px;
+
+// Bordi arrotondati
+$radius-soft: 12px; // coerente con $card-border-radius
+$border-radius: 10px;
+
+// Ombre
+$shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-lighter: 0 2px 6px rgba(0, 0, 0, 0.06);
+$shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+
+//SIDEBAR
+$sidebar-gap: 25px;
+$sidebar-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);

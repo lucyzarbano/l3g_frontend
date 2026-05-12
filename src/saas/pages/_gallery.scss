@@ -1,0 +1,222 @@
+@use "../abstract/variables" as *;
+
+.gallery-page {
+  min-height: 100vh;
+  padding: 5rem 4rem 6rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba($color-lightest, 0.86) 100%),
+    url("../../assets/img/sicilia_5.jpg") center top / cover fixed;
+}
+
+.gallery-page__content {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.gallery-feedback {
+  display: flex;
+  min-height: 280px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0 auto 3rem;
+
+  button {
+    min-height: 40px;
+    padding: 0.55rem 1rem;
+    color: $color-dark;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba($color-medium, 0.2);
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+
+    &:hover,
+    &.is-active {
+      color: $color-white;
+      background: $color-medium;
+      border-color: $color-medium;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.gallery-groups {
+  display: grid;
+  gap: 4rem;
+}
+
+.gallery-category__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba($color-medium, 0.18);
+
+  h2 {
+    margin: 0;
+    color: $color-very-dark;
+    font-family: $font-header;
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  span {
+    color: $color-medium;
+    font-size: 0.88rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+.gallery-tile {
+  position: relative;
+  min-height: 250px;
+  margin: 0;
+  overflow: hidden;
+  background: $color-lighter_2;
+  border: 1px solid rgba($color-medium, 0.14);
+  border-radius: 8px;
+  box-shadow: $shadow-soft;
+
+  &--wide {
+    grid-column: span 2;
+    min-height: 320px;
+  }
+
+  .ant-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba($color-very-dark, 0) 35%, rgba($color-very-dark, 0.82) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  figcaption {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1;
+    display: grid;
+    gap: 0.25rem;
+    color: $color-white;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+
+    strong {
+      font-family: $font-header;
+      font-size: 1.35rem;
+      line-height: 1.15;
+    }
+
+    span {
+      max-width: 36rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+  }
+
+  &:hover {
+    .gallery-tile__image {
+      transform: scale(1.055);
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    &::after,
+    figcaption {
+      opacity: 1;
+    }
+
+    figcaption {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-page {
+    padding: 3rem 1.25rem 4rem;
+    background-attachment: scroll;
+  }
+
+  .gallery-filters {
+    justify-content: flex-start;
+    margin-bottom: 2.25rem;
+  }
+
+  .gallery-category__header {
+    align-items: flex-start;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-tile,
+  .gallery-tile--wide {
+    grid-column: auto;
+    min-height: 280px;
+  }
+
+  .gallery-tile {
+    figcaption,
+    &::after {
+      opacity: 1;
+    }
+
+    figcaption {
+      transform: translateY(0);
+    }
+  }
+}

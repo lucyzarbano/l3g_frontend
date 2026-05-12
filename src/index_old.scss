@@ -1,0 +1,164 @@
+/*palette*/
+
+// Variabili colori
+$color-zeffiro: #4FC3F7;
+$color-ambra: #FFB74D;
+$color-topazio: #FFD54F;
+
+$color-light: #fdfdfd;
+$color-dark: #333;
+
+// Font
+$font-base: 'Montserrat', sans-serif;
+
+// Spacing
+$padding-main: 2rem;
+$border-radius: 10px;
+
+
+/*Reset Base*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: $font-base;
+  background-color: $color-light;
+  color: $color-dark;
+}
+
+/*App Container Principale*/
+.app {
+  background-color: $color-zeffiro;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /*altezza minima uguale a tutta la finestra*/
+}
+
+/*Main (contenuto tra navbar e footer)*/
+.main {
+  flex: 1;
+  padding: $padding-main;
+  background-color: $color-light;
+}
+
+/*NAVBAR*/
+nav {
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: $color-dark;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: $color-zeffiro; /* usa la palette */
+}
+
+/*Camere*/
+.camere {
+  padding: 4rem 2rem;
+  background-color: $color-light;
+  text-align: center;
+}
+
+.camere h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Griglia camere */
+.camere-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.camera-card {
+  border: 1px solid darken($color-light, 10%);
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.3s;
+}
+
+.camera-card:hover {
+  transform: scale(1.05);
+}
+
+.camera-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.camera-card h3 {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.camera-card p {
+  padding: 0 1rem 1rem 1rem;
+  color: darken($color-light, 50%);
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: $color-zeffiro;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: darken($color-zeffiro, 15%);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: $color-zeffiro; /* viola principale */
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Slider immagini */
+.hero-slider {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.hero-slider img {
+  width: 300px;
+  border-radius: $border-radius;
+  flex-shrink: 0;
+}

@@ -1,0 +1,97 @@
+@use "../abstract/variables" as *;
+
+/* targetti TUTTE le classi runtime di AntD v5 */
+.page .ant-btn,
+.place-modal .ant-btn,
+.contact__wrapper .ant-btn,
+.availability-wrapper .ant-btn,
+.camere .ant-btn {
+  background-color: $color-very-dark !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  box-shadow: $shadow-medium !important;
+  transition: background 0.3s ease !important;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-dark !important;
+    color: #fff !important;
+  }
+}
+
+
+.btn__inverse {
+  background: linear-gradient(135deg, $color-inverse_1, $color-inverse_2);
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 20px 20px !important;
+  font-size: 13px;
+  box-shadow:none !important;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease !important;
+
+
+  &:hover,
+  &:focus-visible {
+    /*background: linear-gradient(135deg, $color-inverse_2, $color_inverse_1); // gradiente invertito all'hover*/
+    background: linear-gradient(135deg, $color-dark, $color-medium);
+    color: #fff !important;
+    box-shadow:none !important;
+  }
+}
+
+.ant-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  .ant-pagination-item {
+    border: none;
+    background: linear-gradient(135deg, rgba($color-medium, 0.2), rgba($color-dark, 0.2));
+    margin: 0 4px;
+    transition: all 0.3s ease;
+     color:#fff;
+    /*backdrop-filter: blur(5px); // sfocatura leggerissima per effetto “glass”*/
+    a{
+      color:#fff;
+      &:hover{
+        color: $color-inverse_1;
+      }
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, rgba($color-medium, 0.4), rgba($color-dark, 0.4));
+      color: #fff;
+    }
+
+    &.ant-pagination-item-active {
+      background: linear-gradient(135deg, rgba($color-dark, 0.6), rgba($color-medium, 0.6));
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    .ant-pagination-item-link {
+      background: linear-gradient(135deg, rgba($color-medium, 0.2), rgba($color-dark, 0.2));
+      border-radius: 6px;
+      a {
+        color: #fff;
+      }
+
+      &:hover {
+        background: linear-gradient(135deg, rgba($color-dark, 0.4), rgba($color-medium, 0.4));
+      }
+
+      svg {
+        color: $color-dark;
+      }
+    }
+  }
+}

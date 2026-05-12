@@ -1,0 +1,244 @@
+@use "../abstract/variables" as *;
+
+.rooms_list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  .room-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba($color-medium, 0.14);
+    border-radius: 8px;
+    box-shadow: $shadow-soft;
+    overflow: hidden;
+
+    &__rating {
+      color: $color-inverse_1;
+      display: flex;
+      align-items: center;
+      gap: 0.18rem;
+      margin-bottom: 1rem;
+    }
+
+    &__badges {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      .badge {
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &.badge--piu-venduta {
+          background-color: $color-inverse_1;
+          color: white;
+        }
+
+        &.badge--piu-comoda {
+          background-color: $color-inverse_2;
+          color: white;
+        }
+
+        &.badge--consigliata {
+          background-color: $color-dark;
+          color: white;
+        }
+      }
+    }
+
+    &__text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+
+      h2 {
+        color: $color-dark;
+        margin: 0 0 0.75rem;
+        font-family: $font-header;
+        font-size: 2rem;
+      }
+
+      &--description {
+
+        p {
+          max-width: 620px;
+          margin: 0 0 1.5rem;
+          color: $color-dark;
+          line-height: 1.8;
+        }
+
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin: 0 0 1.5rem;
+        padding: 0;
+
+        li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.45rem;
+          padding: 0.55rem 0.7rem;
+          color: $color-dark;
+          font-size: 0.85rem;
+          background: rgba($color-lightest, 0.72);
+          border: 1px solid rgba($color-medium, 0.12);
+          border-radius: 8px;
+
+          svg {
+            width: 1rem;
+            height: 1rem;
+            color: $color-accent-dark;
+
+          }
+        }
+
+        svg_ {
+          background-color: $color-accent-dark;
+          color: white;
+          border-radius: 50%;
+          padding: 0.5rem;
+          width: 1.1rem;
+          height: 1.1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+
+          &:hover {
+            /*transform: scale(1.1);
+                    background-color: $color-accent-light;
+                    color: #fff;*/
+            color: $color-lighter_2;
+          }
+        }
+
+      }
+    }
+
+    &__image {
+      position: relative; // fondamentale per posizionare overlay sopra l'immagine
+
+      flex: 1;
+      min-width: 0;
+
+      img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        box-shadow: 0 16px 36px rgba($color-very-dark, 0.16);
+        transition: transform 0.35s ease, filter 0.35s ease;
+
+      }
+
+      &:hover img {
+        transform: scale(1.025);
+        filter: saturate(1.04);
+      }
+
+      .badge {
+        position: absolute; // rende il badge overlay
+        top: 12px; // distanza dal bordo superiore
+        right: 12px; // distanza dal bordo sinistro
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.90rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        z-index: 10; // assicurati sia sopra l'immagine
+        cursor: pointer;
+        display: inline-block;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &.badge--piu-venduta {
+          background: #4CAF50;
+        }
+
+        &.badge--piu-comoda {
+          background-color:#FF7F50;
+          &:hover{}
+        }
+
+        &.badge--piu-consigliata {
+          background-color:#3F5C6E;
+        }
+
+        &:hover {
+          animation: slotSpin 0.6s ease-in-out infinite;
+        }
+
+        // se ci sono più badge, li sposta a destra uno dall'altro
+        &:not(:first-child) {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    &.reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1.4rem;
+
+      &.reverse {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.rating-number{
+  color: $color-dark;
+  margin-left: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.star.filled {
+  color: #FFD700; // giallo pieno
+}
+
+.star.half {
+  color: #FFD700;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%); // optional per mezzo effetto
+}
+
+.star.empty {
+  color: #ccc; // grigio chiaro
+}
+
+@media (max-width: 640px) {
+  .rooms_list {
+    gap: 2rem;
+
+    .room-item {
+      padding: 1rem;
+
+      &__text h2 {
+        font-size: 1.7rem;
+      }
+
+      &__image img {
+        height: 280px;
+      }
+    }
+  }
+}

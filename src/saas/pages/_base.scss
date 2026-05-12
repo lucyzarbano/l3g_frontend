@@ -1,0 +1,111 @@
+@use "../abstract/variables" as *;
+
+.page {
+    background: #fff;
+    padding: 6rem 4rem;
+    font-family: $font-body;
+    color: $color-very-dark;
+
+    &__header{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding:0rem 0 3rem 0;
+        /*background: radial-gradient(
+            circle at center,
+            rgba(236, 236, 236, 0.6) 0%,
+            rgba(236, 236, 236, 0.4) 40%,
+            rgba(148, 166, 178, 0.6) 100%
+            );*/
+        background: rgba(236, 236, 236, 1);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 0 4rem 0 4rem;
+
+        &--intro{
+            max-width: 1000px;
+            margin: 1rem auto 0;
+            font-size: 1.2rem;
+            color: $color-dark;
+            line-height: 1.8rem;
+            color: $color-medium;
+        }
+    }
+    &__content{
+        margin: 2rem  4rem 0 4rem;
+
+       
+    }
+}
+
+.page--camere {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.94)),
+        url("/src/assets/img/gemma_1.jpg") center / cover fixed;
+}
+
+.page--room-detail {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.9)),
+        url("/src/assets/img/gemma_4.jpg") center / cover fixed;
+}
+
+.page--places {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.92)),
+        url("/src/assets/img/sicilia_2.jpg") center / cover fixed;
+}
+
+.public-page-header {
+    max-width: 920px;
+    margin: 0 auto 3rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba($color-medium, 0.16);
+    border-radius: 8px;
+    box-shadow: $shadow-soft;
+}
+
+.public-page-header__eyebrow {
+    display: block;
+    margin-bottom: 1rem;
+    color: $color-accent-dark;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.public-page-header h1 {
+    display: inline-block;
+    margin: 0 0 1rem;
+    color: $color-very-dark;
+    font-family: $font-header;
+    font-size: 3.2rem;
+    line-height: 1.1;
+}
+
+.public-page-header p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: $color-dark;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+    .page--camere,
+    .page--room-detail,
+    .page--places {
+        background-attachment: scroll;
+    }
+
+    .public-page-header {
+        padding: 2rem 1.25rem;
+    }
+
+    .public-page-header h1 {
+        font-size: 2.35rem;
+    }
+}

@@ -1,0 +1,214 @@
+@use "../abstract/variables" as *;
+
+
+
+.room_list_wrapper {
+    position: relative;
+}
+
+.rooms_list {
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    &__item {
+        width: 80vw;
+        display: flex;
+        height: 50vh;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        background-color: white;
+        border-radius: 20px;
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+
+        &--image {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                transition: transform 0.5s ease, filter 0.5s ease;
+            }
+
+            ul{
+                width:90%;
+                display: flex;
+                align-items: space-between;
+                list-style-type: none;
+                gap: 10px;
+
+                li{ 
+                    width:20%;
+                    display:flex;
+                    padding: 0.5rem;
+                    flex-direction: column;
+                    align-items: center;
+                    &:not(:last-child) {
+                        border-right: 1px solid rgba($color-accent-dark, 0.3);
+                    }
+
+                    span {
+                        font-size: 1rem;
+                        font-variant: small-caps;
+                        color: $color-accent-dark;
+                    }
+
+                    svg {
+                        background-color: $color-accent-dark;
+                        color: white;
+                        border-radius: 50%;
+                        padding: 0.5rem;
+                        width: 1.1rem;
+                        height: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: transform 0.3s ease, background-color 0.3s ease;
+
+                        &:hover {
+                            /*transform: scale(1.1);
+                            background-color: $color-accent-light;
+                            color: #fff;*/
+                            color: $color-lighter_2;
+                        }
+                    }
+                }
+
+               
+            }
+        }
+
+        &--overlay {
+            inset: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to top,
+                rgba(0,0,0,0.7) 20%,
+                rgba(0,0,0,0.3) 50%,
+                transparent 100%
+            );
+            
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+            
+            opacity: 0; //trasparente all'inizio
+           
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.4s ease;
+        }
+
+        &--title {
+            color: white;
+            font-size: 1.5rem;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+            color: $color_inverse_2;
+        }
+
+        &:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        &:hover img {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        &:hover .rooms_list__item--overlay {
+            opacity: 1;
+            transform: translateY(0);
+            color: $color-inverse_2;
+            font-size: 1rem;
+        }
+
+        &:hover .rooms_list__item--title, &:hover .rooms_list__item--description{
+            transform: translateY(0px);
+        }
+
+      
+
+        &_details {
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; // meglio allineare a sinistra
+            padding: 2rem;
+            background: #fff; // puoi usare una sfumatura chiara
+            /*border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);*/
+            gap: 1rem;
+
+
+            &:hover {}
+
+            h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                color: $color-inverse_1;
+            }
+
+            &--description{
+                line-height: 2rem;
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            ul li {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.5rem 0;
+                font-size: 0.95rem;
+                border-bottom: 1px dashed #eee; // dettaglio elegante tra voci
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: $color-grey-dark-3; // un colore evidenziato quando passi sopra
+                }
+
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+
+    }
+}
+/*ul li svg {
+    background-color: $color-accent-dark;
+    color: $color-lighter_2;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.2);
+        background-color: $color-gray-dark-4;
+        color: #fff;
+    }
+}*/
+/*&--title {
+            position: absolute;
+            height: 2rem;
+            top: 0;
+            right: 0;
+            background-color: magenta;
+        }*/
+

@@ -1,0 +1,235 @@
+@use "../abstract/variables" as *;
+
+.place-container {
+  padding: 6rem 0;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.section--home-places {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.92)),
+    url("/src/assets/img/sicilia_1.jpg") center / cover fixed;
+}
+
+
+.place-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.place-title {
+  margin-bottom: 2rem;
+}
+
+.place-subtitle {
+  margin-bottom: 5rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: $card-gap;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(33.333% - $card-gap);
+  max-width: calc(33.333% - $card-gap);
+  min-width: 260px;
+
+  position: relative;
+  overflow: hidden;
+  background-color: $color-lightest;
+  border-radius: $card-border-radius;
+  border: 1px solid rgba($color-medium, 0.16);
+  box-shadow: $shadow-soft;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    border-color: rgba($color-medium, 0.34);
+    box-shadow: 0 14px 34px rgba($color-very-dark, 0.14);
+    transform: translateY(-4px);
+  }
+}
+
+.card figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  height: $card-img-height;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  /*filter: brightness(0.9) saturate(1.2) hue-rotate(270deg);*/
+  /*filter: brightness(0.8) saturate(1.2) hue-rotate(270deg);*/
+
+  &:hover {
+    transform: scale(1.08);
+    filter: saturate(1.04);
+  }
+
+}
+
+.card figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.1rem;
+  /*background: linear-gradient(
+      to top,
+      rgba(255, 179, 71, 1),
+      rgba(255, 204, 51, 0.3)
+    );*/
+  background: linear-gradient(to top,
+      rgba(42, 59, 70, 0.89),
+      rgba(63, 92, 110, 0));
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  color: #fff;
+
+  h3 {
+    color: $color_inverse_2;
+    margin: 0 0 0.25rem;
+    font-family: $font-header;
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+
+  span {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+}
+
+.card:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*DETAILS*/
+.card-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.card-details h2 {
+  margin-bottom: 1rem;
+  color: $color-very-dark;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.card-details p {
+  line-height: 1.75;
+  color: $color-grey-dark-3;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.card-info {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0 0;
+  margin-top: auto;
+  border-top: 1px solid rgba($color-medium, 0.14);
+  background: #fff;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.card-info .info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.5rem;
+  color: $color-dark;
+  background: rgba($color-lightest, 0.8);
+  border: 1px solid rgba($color-medium, 0.12);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+
+  svg {
+    color: $color-medium;
+  }
+}
+
+.btn-detail {
+  background-color: $color-very-dark;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-detail:hover {
+  background-color: $color-dark;
+}
+
+@media (max-width: 992px) {
+  .place-container {
+    padding: 4rem 0;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - $card-gap);
+    max-width: calc(50% - $card-gap);
+  }
+
+  .card-details {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section--home-places {
+    background-attachment: scroll;
+  }
+
+  .place-container {
+    width: 100%;
+    padding: 3rem 1rem;
+  }
+
+  .place-subtitle {
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .card-details {
+    padding: 1.25rem;
+  }
+
+  .card img {
+    height: 220px;
+  }
+
+  .card-info {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
