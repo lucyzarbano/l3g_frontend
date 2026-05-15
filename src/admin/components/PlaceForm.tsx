@@ -1,5 +1,6 @@
 import { Form, Input, InputNumber, Select, Switch } from 'antd'
 import type { PlaceAdmin } from '../types'
+import CloudinaryUploadButton from './CloudinaryUploadButton'
 
 interface PlaceFormProps {
   formId: string
@@ -10,8 +11,11 @@ interface PlaceFormProps {
 const categoryOptions = ['Natura', 'Cultura', 'Mare', 'Esperienze', 'Centro storico']
 
 export default function PlaceForm({ formId, initialValues, onSubmit }: PlaceFormProps) {
+  const [form] = Form.useForm<PlaceAdmin>()
+
   return (
     <Form<PlaceAdmin>
+      form={form}
       id={formId}
       layout="vertical"
       initialValues={initialValues ?? { attivo: true, categoria: 'Natura', distanzaKm: 1 }}
@@ -37,8 +41,13 @@ export default function PlaceForm({ formId, initialValues, onSubmit }: PlaceForm
           <Select options={categoryOptions.map((value) => ({ value }))} />
         </Form.Item>
       </div>
-      <Form.Item label="Immagine" name="immagine" rules={[{ required: true, message: 'Inserisci un percorso immagine' }]}>
-        <Input placeholder="/src/assets/img/01_ETNA.jpg" />
+      <Form.Item label="Immagine" required>
+        <Input.Group compact>
+          <Form.Item name="immagine" noStyle rules={[{ required: true, message: 'Inserisci un percorso immagine' }]}>
+            <Input placeholder="https://res.cloudinary.com/..." style={{ width: 'calc(100% - 96px)' }} />
+          </Form.Item>
+          <CloudinaryUploadButton onUpload={(url) => form.setFieldValue('immagine', url)} />
+        </Input.Group>
       </Form.Item>
       <Form.Item label="Attivo" name="attivo" valuePropName="checked">
         <Switch checkedChildren="Si" unCheckedChildren="No" />

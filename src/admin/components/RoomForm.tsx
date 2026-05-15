@@ -1,5 +1,6 @@
 import { Form, Input, InputNumber, Select, Switch } from 'antd'
 import type { RoomAdmin } from '../types'
+import CloudinaryUploadButton from './CloudinaryUploadButton'
 
 interface RoomFormProps {
   formId: string
@@ -10,8 +11,11 @@ interface RoomFormProps {
 const serviceOptions = ['Wifi', 'Bagno privato', 'Balcone', 'Aria condizionata', 'TV', 'Parcheggio', 'Vista citta']
 
 export default function RoomForm({ formId, initialValues, onSubmit }: RoomFormProps) {
+  const [form] = Form.useForm<RoomAdmin>()
+
   return (
     <Form<RoomAdmin>
+      form={form}
       id={formId}
       layout="vertical"
       initialValues={initialValues ?? { attiva: true, servizi: [], prezzoBase: 70, capienza: 2 }}
@@ -34,8 +38,13 @@ export default function RoomForm({ formId, initialValues, onSubmit }: RoomFormPr
           <InputNumber min={1} addonAfter="ospiti" />
         </Form.Item>
       </div>
-      <Form.Item label="Immagine copertina" name="immagineCopertina" rules={[{ required: true, message: 'Inserisci un percorso immagine' }]}>
-        <Input placeholder="/src/assets/img/camera_ambra.png" />
+      <Form.Item label="Immagine copertina" required>
+        <Input.Group compact>
+          <Form.Item name="immagineCopertina" noStyle rules={[{ required: true, message: 'Inserisci un percorso immagine' }]}>
+            <Input placeholder="https://res.cloudinary.com/..." style={{ width: 'calc(100% - 96px)' }} />
+          </Form.Item>
+          <CloudinaryUploadButton onUpload={(url) => form.setFieldValue('immagineCopertina', url)} />
+        </Input.Group>
       </Form.Item>
       <Form.Item label="Servizi" name="servizi">
         <Select mode="tags" options={serviceOptions.map((value) => ({ value }))} placeholder="Aggiungi servizi" />
