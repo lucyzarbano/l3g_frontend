@@ -14,6 +14,7 @@ import {
 import type { AboutProps } from '../data/about'
 import type { Place } from '../data/places'
 import type { RoomProps, RoomServiceBase } from '../data/rooms'
+import { resolveContentImage } from './assetUrls'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api'
 
@@ -112,10 +113,15 @@ const mapService = (service: ApiService): RoomServiceBase => ({
   icon: iconFromKey(service.icon_key),
 })
 
+const mapImage = (image: ApiImage): ApiImage => ({
+  src: resolveContentImage(image.src),
+  alt: image.alt,
+})
+
 const mapRoom = (room: ApiRoom): RoomProps => ({
   id: room.id,
-  image: room.cover_image,
-  images: room.images.length > 0 ? room.images : [room.cover_image],
+  image: mapImage(room.cover_image),
+  images: (room.images.length > 0 ? room.images : [room.cover_image]).map(mapImage),
   title: room.title,
   description: room.description,
   short_description: room.short_description,
@@ -129,13 +135,13 @@ const mapRoom = (room: ApiRoom): RoomProps => ({
 })
 
 const mapPlace = (place: ApiPlace): Place => ({
-  img: place.cover_image.src,
+  img: resolveContentImage(place.cover_image.src),
   alt: place.cover_image.alt,
   date: place.event_date ?? '',
   title: place.title,
   detailsTitle: place.details_title,
   description: place.description,
-  images: place.images.length > 0 ? place.images : [place.cover_image],
+  images: (place.images.length > 0 ? place.images : [place.cover_image]).map(mapImage),
   info: place.info.map((item) => ({
     icon: iconFromKey(item.icon_key),
     title: item.title,
@@ -149,7 +155,7 @@ const mapAbout = (about: ApiAbout): AboutProps => ({
   eyebrow: about.eyebrow,
   description: about.description,
   images: about.images.map((image) => ({
-    src: image.src,
+    src: resolveContentImage(image.src),
     alt: image.alt,
     class_name: image.class_name ?? '',
   })),
