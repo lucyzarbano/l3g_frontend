@@ -96,10 +96,9 @@ export default function CloudinaryUploadButton({ onUpload }: CloudinaryUploadBut
   return (
     <>
       {contextHolder}
-      <Button icon={<UploadOutlined />} loading={loading} onClick={openWidget}>
+      <Button htmlType="button" icon={<UploadOutlined />} loading={loading} onClick={openWidget}>
         Carica
       </Button>
     </>
   )
 }
-
