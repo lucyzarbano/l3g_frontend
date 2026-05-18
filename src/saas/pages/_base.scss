@@ -95,6 +95,14 @@
 }
 
 @media (max-width: 640px) {
+    .page {
+        padding: 4rem 1rem;
+
+        &__content {
+            margin: 1.5rem 0 0;
+        }
+    }
+
     .page--camere,
     .page--room-detail,
     .page--places {

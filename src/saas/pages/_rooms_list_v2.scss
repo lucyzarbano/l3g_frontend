@@ -5,6 +5,13 @@
   flex-direction: column;
   gap: 4rem;
 
+  &_item {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 100%;
+  }
+
   .room-item {
     display: flex;
     align-items: center;
@@ -229,15 +236,49 @@
   .rooms_list {
     gap: 2rem;
 
+    &_item {
+      gap: 2rem;
+    }
+
     .room-item {
       padding: 1rem;
+      gap: 1.25rem;
+      width: 100%;
 
       &__text h2 {
         font-size: 1.7rem;
       }
 
+      &__text {
+        align-items: stretch;
+
+        &--description p {
+          margin-bottom: 1rem;
+          line-height: 1.65;
+        }
+
+        ul {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.55rem;
+
+          li {
+            width: 100%;
+          }
+        }
+      }
+
       &__image img {
         height: 280px;
+      }
+
+      &__image .badge {
+        top: 10px;
+        right: 10px;
+        max-width: calc(100% - 20px);
+        white-space: normal;
+        text-align: center;
+        font-size: 0.72rem;
       }
     }
   }
