@@ -14,6 +14,9 @@ export function resolveContentImage(src: string): string {
     .replace(/^src\/assets\/img\//, '')
     .replace(/^assets\/img\//, '')
 
-  return imageUrls[`../assets/img/${normalizedSrc}`] ?? src
+  const optimizedName = normalizedSrc.replace(/\.(jpg|jpeg|png)$/i, '.jpg')
+  return imageUrls[`../assets/img/optimized/${optimizedName}`]
+    ?? imageUrls[`../assets/img/${normalizedSrc}`]
+    ?? src
 }
 

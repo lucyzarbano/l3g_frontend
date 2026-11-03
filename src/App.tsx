@@ -1,4 +1,5 @@
 import {Routes, Route, useLocation} from 'react-router-dom'
+import { useLayoutEffect } from 'react'
 import Camere from './pages/Camere'
 import Contatti from './pages/Contatti'
 import MyNavbar from './components/MyNavbar'
@@ -15,6 +16,10 @@ import AdminApp from './admin/AdminApp'
 export default function App(){
   const location = useLocation()
   const isAdminRoute = location.pathname.startsWith('/admin')
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [location.pathname])
 
   return (
      <div className="app">

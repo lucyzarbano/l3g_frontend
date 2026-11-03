@@ -1,3 +1,4 @@
+import { resolveContentImage } from '../services/assetUrls';
 import {
     faCity,
     faLocationDot,
@@ -34,7 +35,11 @@ export interface RoomProps {
 export const rooms: RoomProps[] = [
     {
         id: "ambra",
-        image: { src: "/src/assets/img/camera_ambra.png", alt: "Camera Ambra" },
+        images: [1, 2, 3, 4, 5].map((index) => ({
+            src: resolveContentImage(`camere/camera_ambra/camera_ambra_0${index}.jpeg`),
+            alt: `Camera Ambra, foto ${index}`,
+        })),
+        image: { src: resolveContentImage("/src/assets/img/camera_ambra.png"), alt: "Camera Ambra" },
         title: "Camera Ambra",
         description: "La Camera Ambra prende il nome dall'omonima pietra. La stanza e dotata di letto matrimoniale con la possibilita di aggiungere ulteriori posti letto. E' provvista di un comodo bagno in camera, l'ambiente e totalmente climatizzato e dotato di riscaldamenti.",
         short_description: "Spaziosa e accogliente, ideale per chi cerca comfort e tranquillita.",
@@ -59,7 +64,7 @@ export const rooms: RoomProps[] = [
     },
     {
         id: "topazio",
-        image: { src: "/src/assets/img/camera_topazio.png", alt: "Camera Topazio" },
+        image: { src: resolveContentImage("/src/assets/img/camera_topazio.png"), alt: "Camera Topazio" },
         title: "Camera Topazio",
         description: "La Camera Topazio prende il nome dall'omonima pietra. La stanza e dotata di letto matrimoniale con la possibilita di aggiungere ulteriori posti letto. E' provvista di un comodo bagno in camera, l'ambiente e totalmente climatizzato e dotato di riscaldamenti.",
         short_description: "Confortevole e luminosa, pensata per un soggiorno pratico e rilassante.",
@@ -84,7 +89,7 @@ export const rooms: RoomProps[] = [
     },
     {
         id: "zaffiro",
-        image: { src: "/src/assets/img/camera_zaffiro.jpeg", alt: "Camera Zaffiro" },
+        image: { src: resolveContentImage("/src/assets/img/camera_zaffiro.jpeg"), alt: "Camera Zaffiro" },
         title: "Camera Zaffiro",
         description: "La Camera Zaffiro prende il nome dall'omonima pietra. La stanza e dotata di letto matrimoniale con la possibilita di aggiungere ulteriori posti letto. E' provvista di un comodo bagno in camera, l'ambiente e totalmente climatizzato e dotato di riscaldamenti.",
         short_description: "Raccolta e piacevole, con affaccio sulla citta e un'atmosfera rilassata.",

@@ -9,13 +9,15 @@
 .section--home-places {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.92)),
-    url("/src/assets/img/sicilia_1.jpg") center / cover fixed;
+    url("../../assets/img/optimized/sicilia_1.jpg") center / cover fixed;
 }
 
 
 .place-header {
   text-align: center;
   margin-bottom: 2rem;
+
+  h1 { color: $color-text; }
 }
 
 .place-title {
@@ -96,7 +98,7 @@
   color: #fff;
 
   h3 {
-    color: $color_inverse_2;
+    color: $color-accent;
     margin: 0 0 0.25rem;
     font-family: $font-header;
     font-size: 1.45rem;
@@ -232,4 +234,24 @@
     align-items: flex-start;
     flex-direction: column;
   }
+}
+
+.place-container > .btn-wrapped-center > .btn {
+  min-height: 44px;
+  padding: .65rem 1.15rem;
+  background: $color-accent;
+  color: $color-white !important;
+  font-family: $font-body;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: none;
+
+  &:hover { background: $color-accent-hover; }
+  &:focus-visible { outline: 2px solid $color-dark; outline-offset: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .place-container .card, .place-container .card img { transition: none; }
+  .place-container .card:hover, .place-container .card img:hover { transform: none; }
 }

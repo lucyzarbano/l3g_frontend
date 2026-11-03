@@ -118,7 +118,7 @@
                 justify-content: center;
                 width: 40px;
                 height: 40px;
-                background: linear-gradient(135deg, $color-inverse_1, $color_inverse_2); // giallo/arancio
+                background: linear-gradient(135deg, $color-accent-hover, $color-accent); // giallo/arancio
                 border-radius: 50%;
                 color: white;
                 margin-right: 12px;
@@ -385,7 +385,7 @@
 .swiper-button-next {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, $color-inverse_1, $color-inverse_2);
+  background: linear-gradient(135deg, $color-accent-hover, $color-accent);
   border-radius: 3px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;

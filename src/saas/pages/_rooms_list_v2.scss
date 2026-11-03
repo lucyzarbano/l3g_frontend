@@ -24,7 +24,7 @@
     overflow: hidden;
 
     &__rating {
-      color: $color-inverse_1;
+      color: $color-accent-hover;
       display: flex;
       align-items: center;
       gap: 0.18rem;
@@ -44,12 +44,12 @@
         text-transform: uppercase;
 
         &.badge--piu-venduta {
-          background-color: $color-inverse_1;
+          background-color: $color-accent-hover;
           color: white;
         }
 
         &.badge--piu-comoda {
-          background-color: $color-inverse_2;
+          background-color: $color-accent;
           color: white;
         }
 

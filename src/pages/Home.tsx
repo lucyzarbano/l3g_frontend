@@ -72,7 +72,7 @@ export default function Home() {
       </div>
      
 
-      {/* Sezione Recensioni */}
+      {/* Sezione Recensioni temporaneamente nascosta
       <section className="recensioni">
         <AnimatedTitle>Cosa dicono di noi</AnimatedTitle>
         <ScrollReveal>        
@@ -95,6 +95,7 @@ export default function Home() {
           </div>
         </ScrollReveal>
         </section>
+      */}
       </div>
   );
 }

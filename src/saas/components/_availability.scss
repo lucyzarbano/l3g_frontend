@@ -70,7 +70,7 @@
     grid-column: 1 / -1;
     margin-top: 1rem;
     background: $color-accent;
-    color: white;
+    color: $color-very-dark;
     border: none;
     padding: 0.95rem 1.2rem;
     border-radius: 14px;
@@ -132,7 +132,7 @@
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: $color-accent;
-  color: white;
+  color: $color-very-dark;
 }
 
 .react-datepicker__day--today {

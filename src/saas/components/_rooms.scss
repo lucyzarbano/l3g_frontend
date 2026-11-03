@@ -4,13 +4,17 @@
 .camere {
   padding: 5rem 2rem;
   background:
-    linear-gradient(135deg, rgba($color-lightest, 0.96), rgba($color-medium, 0.28));
+    linear-gradient(135deg, $color-lightest, rgba($color-lighter, 0.55));
   text-align: center;
 }
 
 .camere h1 {
   margin-bottom: 1rem;
-  color: $color-dark;
+  color: $color-very-dark;
+  font-family: $font-header;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.15;
 }
 
 .camere-intro {
@@ -77,23 +81,24 @@
     max-width: calc(100% - 1.7rem);
     padding: 0.42rem 0.7rem;
     color: $color-white;
-    background: rgba($color-very-dark, 0.86);
-    border-radius: 8px;
+    background: $color-very-dark;
+    border-radius: 3px;
     font-size: 0.72rem;
-    font-weight: 800;
+    font-weight: 600;
+    letter-spacing: .04em;
     line-height: 1.1;
     text-transform: uppercase;
 
     &--piu-comoda {
-      background: #d88a24;
+      background: $color-accent-dark;
     }
 
     &--piu-venduta {
-      background: #3f8f5a;
+      background: $color-dark;
     }
 
     &--piu-consigliata {
-      background: $color-medium;
+      background: $color-recommended;
     }
   }
 
@@ -184,6 +189,18 @@
   .btn {
     align-self: flex-start;
     margin-top: auto;
+    min-height: 44px;
+    padding: .65rem 1.15rem;
+    background: $color-dark;
+    color: $color-white;
+    font-family: $font-body;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    box-shadow: none;
+
+    &:hover { background: $color-very-dark; }
+    &:focus-visible { outline: 2px solid $color-dark; outline-offset: 4px; }
   }
 }
 
@@ -248,10 +265,6 @@
 @media (max-width: 640px) {
   .camere {
     padding: 3.5rem 1rem;
-  }
-
-  .camere h1 {
-    font-size: 2.35rem;
   }
 
   .camere-intro {

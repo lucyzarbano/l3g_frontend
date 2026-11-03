@@ -1,8 +1,29 @@
 # Palette colori
 
+## Palette attuale — Avorio, blu e giallo dorato
+
+La fonte dei colori condivisi è `src/saas/abstract/_variables.scss`. Usare le variabili negli stili, evitando di duplicare i codici colore nei componenti.
+
+| Ruolo | Colore |
+| --- | --- |
+| Sfondo avorio | `#FAF7F2` |
+| Neutri secondari | `#EDE5D9`, `#DCD2C3` |
+| Superfici | `#FFFFFF` |
+| Blu polvere | `#628299` |
+| Blu principale | `#3F5C6E` |
+| Blu profondo | `#2A3B46` |
+| Accento dorato | `#F5B82E` |
+| Accento hover | `#E9A817` |
+| Accento chiaro | `#FFE4A6` |
+| Accento per testo su sfondi chiari | `#946200` |
+| Etichetta Più consigliata | `#456653` |
+
+Il giallo principale si usa con testo blu profondo sui pulsanti, e su fondi scuri per titoli e icone. Per testo piccolo su fondo chiaro usare la variante scura. Le palette seguenti sono riferimenti storici, non colori attivi.
+
+
 Queste palette usano le stesse variabili presenti in `src/saas/abstract/_variables.scss`, cosi puoi provarle senza riscrivere gli stili del sito.
 
-## Opzione 1 - Attuale: Blu Gemma
+## Archivio — Blu Gemma
 
 Elegante, fresca e abbastanza neutra. Funziona bene con foto di camere, Sicilia e dettagli chiari.
 

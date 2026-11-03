@@ -112,7 +112,7 @@
             font-size: 1.5rem;
             transform: translateY(20px);
             transition: transform 0.5s ease;
-            color: $color_inverse_2;
+            color: $color-accent;
         }
 
         &:hover{
@@ -129,7 +129,7 @@
         &:hover .rooms_list__item--overlay {
             opacity: 1;
             transform: translateY(0);
-            color: $color-inverse_2;
+            color: $color-accent;
             font-size: 1rem;
         }
 
@@ -156,7 +156,7 @@
             h3 {
                 font-size: 1.8rem;
                 margin-bottom: 1rem;
-                color: $color-inverse_1;
+                color: $color-accent-hover;
             }
 
             &--description{
@@ -211,4 +211,3 @@
             right: 0;
             background-color: magenta;
         }*/
-

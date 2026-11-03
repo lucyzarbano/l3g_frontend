@@ -23,8 +23,8 @@
 
 
 .btn__inverse {
-  background: linear-gradient(135deg, $color-inverse_1, $color-inverse_2);
-  color: #fff !important;
+  background: linear-gradient(135deg, $color-accent-hover, $color-accent);
+  color: $color-very-dark !important;
   border-radius: 6px;
   padding: 20px 20px !important;
   font-size: 13px;
@@ -37,7 +37,7 @@
 
   &:hover,
   &:focus-visible {
-    /*background: linear-gradient(135deg, $color-inverse_2, $color_inverse_1); // gradiente invertito all'hover*/
+    /*background: linear-gradient(135deg, $color-accent, $color-accent-hover); // gradiente invertito all'hover*/
     background: linear-gradient(135deg, $color-dark, $color-medium);
     color: #fff !important;
     box-shadow:none !important;
@@ -59,7 +59,7 @@
     a{
       color:#fff;
       &:hover{
-        color: $color-inverse_1;
+        color: $color-accent-hover;
       }
     }
 

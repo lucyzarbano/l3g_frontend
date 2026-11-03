@@ -1,7 +1,7 @@
 @use "../abstract/variables" as *;
 
 .site-footer {
-  color: #ffffff;
+  color: $color-lightest;
   padding: 4rem 1.5rem 1.5rem;
   font-family: $font-body;
   background:
@@ -16,7 +16,7 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: minmax(280px, 1.3fr) minmax(180px, 0.7fr) minmax(260px, 1fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr) minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
 }
@@ -26,7 +26,7 @@
   color: #ffffff;
   font-family: $font-header;
   font-size: 1.55rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .footer-col p,
@@ -42,8 +42,8 @@
   margin-bottom: 0.75rem;
   color: $color-accent;
   font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
@@ -52,23 +52,23 @@
   margin: 0 0 1.5rem;
 }
 
-.footer-cta {
+.footer-brand .footer-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
   padding: 0.7rem 1.15rem;
   color: $color-very-dark;
-  font-weight: 800;
+  font-weight: 500;
   text-decoration: none;
-  background: $color-accent;
-  border-radius: 8px;
+  background: $color-lightest;
+  border-radius: 3px;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.footer-cta:hover {
+.footer-brand .footer-cta:hover {
   color: $color-very-dark;
-  background: $color-accent-light;
+  background: $color-accent;
   transform: translateY(-2px);
 }
 
@@ -81,13 +81,13 @@
 }
 
 .footer-nav {
-  padding-top: 0.35rem;
+  padding-top: 0;
 }
 
 .footer-nav a {
   display: inline-flex;
   color: rgba(255, 255, 255, 0.92);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .footer-nav a,
@@ -114,9 +114,10 @@
 
 .footer-contact a {
   display: grid;
-  grid-template-columns: 34px 1fr;
+  grid-template-columns: 34px minmax(0, 1fr);
   gap: 0.75rem;
   align-items: center;
+  overflow-wrap: anywhere;
 }
 
 .footer-contact svg {
@@ -125,7 +126,7 @@
   padding: 9px;
   color: $color-accent;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .footer-bottom {
@@ -172,4 +173,25 @@
   .footer-bottom {
     flex-direction: column;
   }
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer a { transition: none; }
+  .footer-brand .footer-cta:hover { transform: none; }
+}
+
+.footer-brand .footer-reviews {
+  display: block;
+  width: fit-content;
+  margin-top: 1.25rem;
+  color: $color-lightest;
+  font-size: .9rem;
+  text-underline-offset: 4px;
+
+  &:hover { color: $color-accent; }
 }

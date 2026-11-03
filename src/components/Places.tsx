@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMountain, faWater, faLocationDot, faChurch } from '@fortawesome/free-solid-svg-icons';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { places } from '../data/places';
 import { useAsyncFallback } from '../hooks/useAsyncFallback';
 import { contentApi } from '../services/contentApi';
@@ -24,11 +25,7 @@ export default function Places(){
             {data.slice(1).map((place, index) => (
                 <div key={index} className="card">
                     <figure>
-                        <img src={place.img} alt={place.alt} />
-                        <figcaption>
-                          <h3>{place.title}</h3>
-                          <span>{place.detailsTitle}</span>
-                        </figcaption>
+                        <img src={place.img} alt={place.alt} loading="lazy" decoding="async" />
                     </figure>
                     <div className="card-details">
                         <h2>{place.detailsTitle}</h2>
@@ -48,7 +45,7 @@ export default function Places(){
             ))}
             </div>
             <div className="btn-wrapped-center">
-              <button className="btn btn__large btn__inverse"> Vedi tutti i luoghi </button>
+              <Link to="/places" className="btn btn__large btn__inverse">Vedi tutti i luoghi</Link>
             </div>
          </div>
     )

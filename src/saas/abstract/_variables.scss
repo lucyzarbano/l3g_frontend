@@ -1,32 +1,19 @@
-// Variabili colori
-// Alternative complete in frontend/docs/palette-colori.md
-/*$color-lightest: #EFE9F5;     // grigio molto chiaro
-$color-lighter: #D1C1E0;      // neutro chiaro
-$color-medium: #AC92C4;       // grigio medio tenue
-$color-dark: #633E87;         // grigio scuro
-$color-very-dark: #8565A4;*/
-
-
-/*$color-lightest: #FCFAF5;    // Crema molto chiaro (sfondi principali)
-$color-lighter: #F3ECDF;     // Crema chiaro tipo "panna" (box, card)
-$color-medium:  #E4D5BB;     // Beige morbido (sfondi secondari)
-$color-dark:    #C7B08F;     // Beige scuro caldo (bottoni, footer chiaro)
-$color-very-dark: #8C7050;   // Marrone caldo naturale (accenti, titoli)
-$color-text:   $color-very-dark;  // Marrone scuro per il testo leggibile*/
-
-$color-lightest: #E6EDF2;   // Azzurro molto chiaro, quasi sfondo bianco
-$color-lighter:  #b0cadc;
-$color-lighter_2:  #A8C1D3;   // Blu chiaro morbido, card o box
+// Palette Le Tre Gemme — colori condivisi
+$color-lightest: #FAF7F2;   // Avorio caldo, sfondo principale
+$color-lighter:  #EDE5D9;
+$color-lighter_2:  #DCD2C3;   // Neutro caldo per superfici secondarie
 $color-medium:   #628299;   // Colore principale del brand
 $color-dark:     #3F5C6E;   // Blu/grigio scuro, per titoli o bottoni
 $color-very-dark:#2A3B46;   // Blu molto scuro, per testo principale
 $color-text:   $color-dark; 
 
 
-//sostituire
-$color-accent:   #febf04;   // Accent caldo/arancione per contrasti e bottoni
-$color-accent-dark:   #f99703;   // Accent caldo/arancione per contrasti e bottoni
-$color-accent-light:   #e1ad11;   // Accent caldo/arancione per contrasti e bottoni
+// Accento dorato: principale, hover e testo su fondo chiaro
+$color-accent: #F5B82E;
+$color-accent-dark: #946200;
+$color-accent-light: #FFE4A6;
+$color-accent-hover: #E9A817;
+$color-recommended: #456653;
 
 
 
@@ -47,8 +34,8 @@ $color-black: #000;
 $color-background-gray-1: #F5F5F5;
 $color-background-gray-2: #EEEEEE;
 
-$color-inverse_1: #ffb347;
-$color-inverse_2: #ffcc33;
+
+
 
 
 

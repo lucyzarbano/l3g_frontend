@@ -1,5 +1,5 @@
-import aboutImageOne from '../assets/img/chi-siamo_1.jpg'
-import aboutImageTwo from '../assets/img/chi-siamo_2.jpg'
+import aboutImageOne from '../assets/img/optimized/chi-siamo_1.jpg'
+import aboutImageTwo from '../assets/img/optimized/chi-siamo_2.jpg'
 
 export interface AboutProps {
   title: string
@@ -9,13 +9,11 @@ export interface AboutProps {
 }
 
 export const AboutInfo: AboutProps = {
-  title: 'Chi Siamo',
-  eyebrow: 'Nel cuore di Lentini',
+  title: 'Il tuo soggiorno nel cuore di Lentini',
+  eyebrow: 'Benvenuti alle Tre Gemme',
   description: [
-    'Il B&B Le Tre Gemme si trova in via Conte Alaimo, nel centro storico di Lentini, in provincia di Siracusa.',
-    "A pochi passi dalla struttura puoi riscoprire la bellezza, la cultura e la storia del paese, dalla chiesa di San Francesco di Paola alla chiesa madre di Sant'Alfio, preziosa testimonianza del barocco siciliano.",
-    "Lentini e una base ideale per visitare la Sicilia orientale: il mare dista 10 km, Catania 25 km, Siracusa 45 km, mentre Etna, Noto e Taormina sono facilmente raggiungibili per una giornata speciale.",
-    'Le Tre Gemme offre un soggiorno confortevole in un ambiente ospitale, curato e accogliente.',
+    'Nel centro storico di Lentini, in via Conte Alaimo, Le Tre Gemme ti accoglie in ambienti curati, dove ritrovare la calma dopo una giornata alla scoperta della Sicilia.',
+    'Tra una passeggiata per le vie del centro e una nuova meta da esplorare, il nostro B&B è il punto da cui partire e a cui tornare per sentirti a tuo agio.',
   ],
   images: [
     { src: aboutImageOne, alt: 'Dettaglio accogliente del B&B Le Tre Gemme', class_name: 'img_1' },

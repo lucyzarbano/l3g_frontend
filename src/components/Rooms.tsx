@@ -36,7 +36,7 @@ export default function Rooms() {
       {visibleRooms.map((room) => (
         <article className="camera-card" key={room.id}>
           <Link to={`/room/${room.id}`} className="camera-card__image" aria-label={`Vedi ${room.title}`}>
-            <img src={room.image.src} alt={room.image.alt} />
+            <img src={room.image.src} alt={room.image.alt} loading="lazy" decoding="async" />
             {room.badges[0] && <span className={getBadgeClassName(room.badges[0])}>{room.badges[0]}</span>}
           </Link>
 
